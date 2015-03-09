@@ -3458,17 +3458,6 @@ type 0309, grid 2.5 mm</description>
 <pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
 </symbol>
-<symbol name="LED">
-<wire x1="0" y1="-2.54" x2="0" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="0" y2="2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="2.54" x2="2.54" y2="0" width="0.254" layer="94"/>
-<wire x1="2.54" y1="0" x2="0" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="2.54" x2="-2.54" y2="0" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="0" x2="-2.54" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
-<pin name="P2" x="-7.62" y="0" length="middle"/>
-<pin name="P1" x="7.62" y="0" length="middle" rot="R180"/>
-</symbol>
 </symbols>
 <devicesets>
 <deviceset name="ATMEGA32U2">
@@ -4995,22 +4984,6 @@ Some male, some female. Watch your step!</description>
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="LED_0402">
-<gates>
-<gate name="G$1" symbol="LED" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="R0402">
-<connects>
-<connect gate="G$1" pin="P1" pad="1"/>
-<connect gate="G$1" pin="P2" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
