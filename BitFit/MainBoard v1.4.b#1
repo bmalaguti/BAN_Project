@@ -149,7 +149,7 @@
 <text x="24.75" y="9.3" size="0.6096" layer="21" font="vector" ratio="25">U3</text>
 <text x="21.1" y="7.35" size="0.6096" layer="21" font="vector" ratio="25" rot="R90">R1</text>
 <text x="17.8" y="7.15" size="0.6096" layer="21" font="vector" ratio="25" rot="R90">R11</text>
-<text x="18.8" y="3.8" size="0.6096" layer="21" font="vector" ratio="25" rot="R180">C3</text>
+<text x="16.75" y="5.1" size="0.6096" layer="21" font="vector" ratio="25" rot="R45">C3</text>
 <text x="30.85" y="7.55" size="0.6096" layer="21" font="vector" ratio="25" rot="R180">L1</text>
 <text x="30.85" y="5.55" size="0.6096" layer="21" font="vector" ratio="25" rot="R180">L2</text>
 <text x="30.85" y="3.55" size="0.6096" layer="21" font="vector" ratio="25" rot="R180">L3</text>
