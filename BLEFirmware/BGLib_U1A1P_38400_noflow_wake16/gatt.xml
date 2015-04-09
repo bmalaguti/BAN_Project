@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+
+    <!-- 1800: org.bluetooth.service.generic_access -->
+    <service uuid="1800" id="generic_access">
+        <description>Generic Access</description>
+
+        <!-- 2A00: org.bluetooth.characteristic.gap.device_name -->
+        <characteristic uuid="2A00" id="c_device_name">
+            <description>Device Name</description>
+            <properties read="true" const="true" />
+            <value>BGLib U1A1P 38.4NFW</value>
+        </characteristic>
+
+        <!-- 2A01: org.bluetooth.characteristic.gap.appearance -->
+        <characteristic uuid="2A01" id="c_appearance">
+            <description>Appearance</description>
+            <properties read="true" const="true" />
+            <!-- 128: Generic Computer, Generic category -->
+            <value type="hex">0080</value>
+        </characteristic>
+        
+    </service>
+
+    <!-- 180A: org.bluetooth.service.device_information -->
+    <service uuid="180A" id="device_information">
+        <description>Device Information</description>
+
+        <!-- 2A29: org.bluetooth.characteristic.manufacturer_name_string -->
+        <!-- (support for this characteristic is MANDATORY according to the profile spec) -->
+        <characteristic uuid="2A29" id="c_manufacturer_name">
+            <description>Manufacturer Name</description>
+            <properties read="true" const="true" />
+            <value>SectorFej</value>
+        </characteristic>
+
+        <!-- 2A24: org.bluetooth.characteristic.model_number_string -->
+        <characteristic uuid="2A24" id="c_model_number">
+            <description>Model Number</description>
+            <properties read="true" const="true" />
+            <value>SF-BGLIB</value>
+        </characteristic>
+
+    </service>
+
+    <!-- custom service for data transmission test -->
+    <service uuid="195AE58A-437A-489B-B0CD-B7C9C394BAE4" id="data_transceiver" advertise="true">
+        <description>Data transceiver service</description>
+
+        <characteristic uuid="5FC569A0-74A9-4FA4-B8B7-8354C86E45A4" id="c_rx_data">
+            <description>RX Data</description>
+            <properties write="true" />
+            <value variable_length="true" length="20"></value>
+        </characteristic>
+
+        <characteristic uuid="21819AB0-C937-4188-B0DB-B9621E1696CD" id="c_tx_data">
+            <description>TX Data</description>
+            <properties read="true" notify="true" indicate="true" />
+            <value variable_length="true" length="20"></value>
+        </characteristic>
+
+    </service>
+	
+	    <service uuid="1d14d6ee-fd63-4fa1-bfa4-8f47b42119f0">
+        <description>OTA Service</description>
+        
+        <!-- Standard OTA endpoints for BLEGUI to work -->
+        <characteristic uuid="f7bf3564-fb6d-4e53-88a4-5e37e0326063" id="ota_control">
+            <properties write="true" />
+            <value length="1" type="user" />
+        </characteristic>
+        <characteristic uuid="984227f3-34fc-4045-a5d0-2c581f81a153" id="ota_data">
+            <properties write_no_response="true" />
+            <value length="20" />
+        </characteristic>
+
+        <!-- More robust OTA endpoints for Android and iOS (BLEGUI won't work with these) -->
+        <characteristic uuid="00737572-6573-686a-6f73-68692e636f6d" id="ota_data_w_response">
+            <properties write="true" />
+            <value length="20" />
+        </characteristic>       
+            <characteristic uuid="01737572-6573-686a-6f73-68692e636f6d" id="ota_control_wo_response">
+            <properties write_no_response="true" />
+            <value length="1" type="user" />
+        </characteristic>
+
+    </service>
+    
+    <service uuid="00766963-6172-6173-6f6c-7574696f6e73">
+        <description>Device Control</description>
+        <characteristic uuid="01766963-6172-6173-6f6c-7574696f6e73" id="device_reset">
+            <description>Device Reset</description>
+            <properties write_no_response="true" />
+            <value length="1" />
+        </characteristic>
+    </service>
+
+</configuration>
