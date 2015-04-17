@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project>
+    <gatt in="gatt.xml" />
+    <hardware in="hardware256.xml" />    
+    <script in="ota256.bgs" />
+    <config in="config256.xml" />
+    <device type="ble113-m256k" />
+	<boot fw="bootota" />
+   	<image out="out-ble113-m256k.hex" />    
+	<ota out="BLE113-256.ota" />
+</project>

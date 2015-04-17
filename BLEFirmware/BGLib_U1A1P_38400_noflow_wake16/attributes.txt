@@ -9,3 +9,4 @@ ota_data 27
 ota_data_w_response 29
 ota_control_wo_response 31
 device_reset 34
+c_tx_data 38

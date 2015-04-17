@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<hardware>
+    <sleeposc enable="true" ppm="30" />
+	<sleep enable="true" />
+	<wakeup_pin enable="true" port="0" pin="0" state="up" />
+	
+	<script enable="true" />
+    <txpower power="15" bias="5" />
+    <pmux regulator_pin="7" />
+    
+    <otaboot source="internal" />
+    <port index="1" tristatemask="0" pull="down" />
+	
+	<usb enable="false" endpoint="none" />
+</hardware>

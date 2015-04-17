@@ -61,46 +61,4 @@
 
     </service>
 	
-	<service uuid="1d14d6ee-fd63-4fa1-bfa4-8f47b42119f0">
-        <description>OTA Service</description>
-        
-        <!-- Standard OTA endpoints for BLEGUI to work -->
-        <characteristic uuid="f7bf3564-fb6d-4e53-88a4-5e37e0326063" id="ota_control">
-            <properties write="true" />
-            <value length="1" type="user" />
-        </characteristic>
-        <characteristic uuid="984227f3-34fc-4045-a5d0-2c581f81a153" id="ota_data">
-            <properties write_no_response="true" />
-            <value length="20" />
-        </characteristic>
-
-        <!-- More robust OTA endpoints for Android and iOS (BLEGUI won't work with these) -->
-        <characteristic uuid="00737572-6573-686a-6f73-68692e636f6d" id="ota_data_w_response">
-            <properties write="true" />
-            <value length="20" />
-        </characteristic>       
-        <characteristic uuid="01737572-6573-686a-6f73-68692e636f6d" id="ota_control_wo_response">
-            <properties write_no_response="true" />
-            <value length="1" type="user" />
-        </characteristic>
-    </service>
-    
-    <service uuid="00766963-6172-6173-6f6c-7574696f6e73">
-        <description>Device Control</description>
-        <characteristic uuid="01766963-6172-6173-6f6c-7574696f6e73" id="device_reset">
-            <description>Device Reset</description>
-            <properties write_no_response="true" />
-            <value length="1" />
-        </characteristic>
-    </service>
-	
-	<service uuid="00766963-6172-6173-6f6c-7574696f6e74">
-        <description>Magic</description>
-		<description>Conducts Magic</description>
-		<characteristic uuid="21819AB0-C937-4188-B0DB-B9621E1696CE" id="c_tx_data">
-			<description>TX Magic</description>
-			<properties read="true" notify="true" indicate="true" />
-			<value variable_length="true" length="20"></value>
-		</characteristic>
-    </service>
 </configuration>

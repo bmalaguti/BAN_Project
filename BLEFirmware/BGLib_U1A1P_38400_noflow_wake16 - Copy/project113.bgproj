@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project>
     <gatt in="gatt.xml" />
-    <hardware in="hardware.xml" />    
-	<script in="bgscript.bgs" />
+    <hardware in="hardware.xml" />   
     <image out="out.hex" />
     <device type="ble113-m256k" />
     <boot fw="bootuart" />
