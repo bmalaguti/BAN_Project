@@ -1,4 +1,4 @@
-44
+40
 0:0	GAP_AD_FLAG_BREDR_NOT_SUPPORTED
 0:0	GAP_AD_FLAG_GENERAL_DISCOVERABLE
 0:0	GAP_AD_FLAG_LIMITED_DISCOVERABLE
@@ -25,6 +25,8 @@
 0:0	attributes_attribute_status_flag_notify
 0:0	c_manufacturer_name
 0:0	c_model_number
+0:0	c_rx_data
+0:0	c_tx_data
 0:0	connection_completed
 0:0	connection_connected
 0:0	connection_encrypted
@@ -87,4 +89,3 @@
 32:4	dfu_pointer
 36:4	erase_page
 40:0	max_erase_page
-40:4	Fuck

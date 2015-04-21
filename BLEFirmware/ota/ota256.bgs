@@ -29,10 +29,7 @@ dim dfu_pointer  # current pointer to flash location to upload firmware
 dim erase_page   # current page to erase
 const max_erase_page = 64
 
-const Fuck = 80
-
 event system_boot(major, minor, patch, build, ll_version, protocol_version, hw)
-    Fuck = 80
 	# Erase internal flash dedicated for OTA
     # For this to work, the script timeout has to be increased from the default
     # value in application configuration file (config.xml)
@@ -99,6 +96,4 @@ end
 event connection_disconnected(handle, result)
     # Makes the device visible and connectable
     call gap_set_mode(gap_general_discoverable, gap_undirected_connectable)
-	
-	Fuck = Fuck + 1
 end
