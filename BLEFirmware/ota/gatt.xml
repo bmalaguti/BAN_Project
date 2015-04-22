@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration>
-	
-    <service uuid="1800">
-      <description>Generic Access Profile</description>
-
+    
+	<service uuid="1800">
       <characteristic uuid="2a00">
-        <properties read="true" const="true" />
+        <properties read="true" const="true"/>
         <value>Bluegiga OTA Demo</value>
       </characteristic>
-
       <characteristic uuid="2a01">
         <properties read="true" const="true" />
         <value type="hex">0000</value>
@@ -16,7 +13,6 @@
     </service>
 	
 	<service uuid="1d14d6ee-fd63-4fa1-bfa48f47b42119f0">
-	    <description>Bluegiga OTA</description>
 		<characteristic uuid="f7bf3564-fb6d-4e53-88a4-5e37e0326063" id="ota_control">
 		    <properties write="true" />
 			<value length="1" type="user" />
@@ -27,39 +23,22 @@
 		</characteristic>
 	</service>
 	
-    <service uuid="180A" id="device_information">
-        <description>Device Information</description>
-        
-        <characteristic uuid="2A29" id="c_manufacturer_name">
-            <description>Manufacturer Name</description>
-            <properties read="true" const="true" />
+    <service uuid="180A">
+        <characteristic uuid="2A29" >
+            <properties read="true" const="true"/>
             <value>SectorFej</value>
         </characteristic>
-        
-        <characteristic uuid="2A24" id="c_model_number">
-            <description>Model Number</description>
+        <characteristic uuid="2A24">
             <properties read="true" const="true" />
             <value>Model-Number</value>
         </characteristic>
-		
     </service>
-
-	<!-- custom service for data transmission test -->
-    <service uuid="195AE58A-437A-489B-B0CD-B7C9C394BAE4" id="data_transceiver" advertise="true">
-        <description>Data transceiver service</description>
-
-        <characteristic uuid="5FC569A0-74A9-4FA4-B8B7-8354C86E45A4" id="c_rx_data">
-            <description>RX Data</description>
-            <properties write="true" />
-            <value variable_length="true" length="20"></value>
+	
+	<service uuid="195AE58A-437A-489B-B0CD-B7C9C394BAE4" advertise="true">
+        <characteristic uuid="21819AB0-C937-4188-B0DB-B9621E1696CD" id="xgatt_name">
+            <properties read="true"/>
+            <value variable_length="true" length="7" type="user">Test000</value>
         </characteristic>
-
-        <characteristic uuid="21819AB0-C937-4188-B0DB-B9621E1696CD" id="c_tx_data">
-            <description>TX Data</description>
-            <properties read="true" notify="true" indicate="true" />
-            <value variable_length="true" length="20"></value>
-        </characteristic>
-
     </service>
 	
 </configuration>

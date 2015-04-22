@@ -29,6 +29,12 @@ dim dfu_pointer  # current pointer to flash location to upload firmware
 dim erase_page   # current page to erase
 const max_erase_page = 64
 
+dim Name(7)
+
+dim buffer(20)
+dim r
+dim in_len
+
 event system_boot(major, minor, patch, build, ll_version, protocol_version, hw)
 	# Erase internal flash dedicated for OTA
     # For this to work, the script timeout has to be increased from the default
@@ -41,7 +47,17 @@ event system_boot(major, minor, patch, build, ll_version, protocol_version, hw)
 
     # Set device to advertisement mode and allow undirected connections
     call gap_set_mode(gap_general_discoverable, gap_undirected_connectable)
+	
+	Name(0:1) = $42
+	Name(1:1) = $47
+	Name(2:1) = $53
+	Name(3:1) = $63
+	Name(4:1) = $72
+	Name(5:1) = $69
+	Name(6:1) = $70
+	Name(7:1) = $74
 
+	call system_endpoint_set_watermarks(system_endpoint_uart1, 1, 1) # enable 
     # Initialize the DFU pointer
     dfu_pointer = 0
 end
@@ -92,8 +108,29 @@ event attributes_value(connection, reason, handle, offset, value_len, value_data
     end if
 end
 
+event attributes_user_read_request(connection, handle, offset, maxsize)
+	Name(2:1) = Name(2:1) + 1
+	
+	if handle = xgatt_name then
+        call attributes_user_read_response(connection, 0, 7, Name(0:7))
+	else
+		call attributes_user_read_response(connection, 0, 1, $80)
+	end if
+end
+
+event system_endpoint_watermark_rx(endpoint, size)
+
+	Name(3:1) = Name(3:1) + 1
+    in_len = 1
+    # Receive Character
+    call system_endpoint_rx(endpoint, size)(r, in_len, buffer(0))
+    
+end
+
 # Disconnection event listener
 event connection_disconnected(handle, result)
     # Makes the device visible and connectable
+	Name(1:1) = Name(1:1) + 1
+	
     call gap_set_mode(gap_general_discoverable, gap_undirected_connectable)
 end
